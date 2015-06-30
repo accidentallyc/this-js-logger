@@ -1,0 +1,69 @@
+<h3>Welcome to little-logger</h3>
+<ol>
+	<li>Open the console</li>
+	<li>Save the new logs by calling <button onClick='log.download()'>log.download()</button></li>
+	<li>Clear logs by calling <button  onClick='log.clear()' >log.clear()</button></li>
+</ol>
+
+
+
+<script src='dist/this-js-logger.js'></script>
+<script src='testing-script/level-4.js'></script>
+
+<b>Code Used in this page</b>
+<pre>
+<script style='display:block; background:#EEE;'>
+	/** Level 0 **/
+	log.error("Level 0");
+
+	/** Level 1 **/
+	!function(){
+		log.warn("Level 1 + Anon Function")
+	}();
+
+	/** Level 2 **/
+	!function(){
+		function some_random_function(){
+			log.info("Level 2 + Anon + Named Function")
+		}
+		some_random_function();
+	}();
+
+	/** Level 3 **/
+	!function(){
+		function some_random_function(){
+
+			function function_factory(){
+				return function(){
+					log.debug("Level 3  + Anon + Named Function + From Function Factory ");
+				}
+			}
+
+			function_factory()();
+			
+		}
+		some_random_function();
+	}();
+
+	/** Level 4 **/
+	!function(){
+		function some_random_function(){
+
+			function function_factory(){
+				return function(){
+					namedFuncFromAnotherFile();
+				}
+			}
+
+			function_factory()();
+			
+		}
+		some_random_function();
+	}();
+
+	/** With Object **/
+	log.info("With object",{"foo":[1,2,3,{"bar":4}]});
+
+
+</script>
+</pre>
