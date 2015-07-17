@@ -7,12 +7,14 @@
 
 
 
-<script src='dist/this-js-logger.js'></script>
+<script src='dist/this-js-logger.js' logger-max-records="90"></script>
 <script src='testing-script/level-4.js'></script>
 
 <b>Code Used in this page</b>
 <pre>
 <script style='display:block; background:#EEE;'>
+
+
 	/** Level 0 **/
 	log.error("Level 0");
 
@@ -65,5 +67,9 @@
 	log.info("With object",{"foo":[1,2,3,{"bar":4}]});
 
 
+	/** Force An Exception **/
+	someNoneExistentVariable[8];
 </script>
+
+
 </pre>
