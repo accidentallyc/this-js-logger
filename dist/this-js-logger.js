@@ -139,7 +139,6 @@
 	 db.transaction(function (tx) {
 		tx.executeSql('SELECT COUNT(*) AS c FROM ' + logger_db, [], function (tx, r) {
 			var count =  r.rows.item(0).c;
-			console.log(count);
 			if( parseInt(count) > logger_max_records ) {
 				
 				tx.executeSql('DELETE FROM '+logger_db+' WHERE rowid IN (SELECT rowid FROM '+logger_db+' ASC LIMIT '+logger_remove_limit+')',[],function(){
