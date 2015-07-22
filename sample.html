@@ -1,13 +1,14 @@
 <h3>Welcome to little-logger</h3>
 <ol>
-	<li>Open the console</li>
+	<li>Open <span id="fbind">the</span> console</li>
 	<li>Save the new logs by calling <button onClick='log.download()'>log.download()</button></li>
 	<li>Clear logs by calling <button  onClick='log.clear()' >log.clear()</button></li>
 </ol>
 
 
 
-<script src='dist/this-js-logger.js' logger-max-records="90"></script>
+<script src='dist/this-js-logger.js' logger-max-records="90" ></script>
+
 <script src='testing-script/level-4.js'></script>
 
 <b>Code Used in this page</b>
@@ -71,5 +72,15 @@
 	someNoneExistentVariable[8];
 </script>
 
+<script>
+	window.flog = new thisJsLogger({},"function binding");
+	var secret_dom = document.getElementById("fbind");
+
+
+	secret_dom.addEventListener("click", function(){
+		alert("You found me!");
+	});
+	flog.info("Finished binding function to the `the` word in <li> #1");
+</script>
 
 </pre>
