@@ -61,6 +61,7 @@ Below are the default configurations, They are all optional. You can use it as i
 
 ## What's new?
 VERSION "0.2.0" has the ff new features
+
 1. thisJsLogger class ( allows you to instantiate your own logger )
 2. Logger categories ( allows you to categorize logging )
 3. `logger-record-flag` default changed from true to false.
